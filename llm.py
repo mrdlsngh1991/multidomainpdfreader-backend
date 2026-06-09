@@ -1,5 +1,4 @@
 import torch
-import streamlit as st
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig, pipeline
 from langchain_huggingface import HuggingFacePipeline
 from langchain_groq import ChatGroq
