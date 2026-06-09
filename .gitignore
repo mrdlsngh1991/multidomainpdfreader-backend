@@ -1,0 +1,73 @@
+# =========================
+# 🔐 ENV / SECRETS
+# =========================
+.env
+*.env
+.env.local
+.env.production
+
+# =========================
+# 📦 DEPENDENCIES
+# =========================
+venv/
+ENV/
+.envrc
+__init.py/
+.ipynb_checkpoints/
+db/
+
+# =========================
+# 🧠 RAG / VECTOR DB DATA
+# (VERY IMPORTANT for your project)
+# =========================
+faiss_other_index/
+pdfs/
+*.faiss
+*.pkl
+*.index
+
+# =========================
+# 📄 UPLOADED / PROCESSED FILES
+# =========================
+uploads/
+backend/uploads/
+data/
+backend/data/
+processed/
+backend/processed/
+
+# =========================
+# 🧾 LOGS
+# =========================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# =========================
+# 🏗 BUILD OUTPUT
+# =========================
+dist/
+build/
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.cache/
+
+# =========================
+# 🖥 OS / IDE
+# =========================
+.DS_Store
+.vscode/
+.idea/
+
+# =========================
+# 🚀 OPTIONAL (LLM / ML)
+# =========================
+*.bin
+*.pt
+*.onnx
+*.model
+*.checkpoint
