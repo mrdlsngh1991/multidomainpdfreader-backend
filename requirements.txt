@@ -1,37 +1,53 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# RAG App — requirements.txt  (EC2 CPU-safe)
+#
+# IMPORTANT — install torch FIRST before this file to avoid 2.5 GB CUDA download:
+#
+#   pip install torch==2.5.1 --index-url https://download.pytorch.org/whl/cpu
+#   pip install -r requirements.txt
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# ── Web framework ──────────────────────────────────────────────────────────────
 fastapi==0.136.3
-uvicorn[standard]==0.49.0
+uvicorn[standard]==0.49.0        # [standard] adds httptools + websockets
+python-multipart==0.0.32         # FIXED: was 0.0.3 (incomplete version) — required for UploadFile
 pydantic==2.13.4
+aiofiles==25.1.0                 # ADDED: async file I/O used in FastAPI routes
 
+# ── Environment & config ───────────────────────────────────────────────────────
+python-dotenv==1.2.2
 
-python-multipart==0.0.3
-boto3==1.43.24
+# ── AWS ────────────────────────────────────────────────────────────────────────
+boto3==1.43.25                   # FIXED: was 1.43.24 (latest is .25)
 
-# ── PDF loading ───────────────────────────────────────────────────────────────
-pypdf==5.8.0    
-
-
-# ── LangChain stack ───────────────────────────────────────────────────────────
-langchain
-langchain-core==1.4.1
+# ── LangChain stack ────────────────────────────────────────────────────────────
+langchain==1.3.4                 # FIXED: was unpinned
+langchain-core==1.4.2            # FIXED: was 1.4.1 (latest is 1.4.2)
 langchain-community==0.4.2
 langchain-text-splitters==1.1.2
 langchain-huggingface==1.2.2
 langchain-groq==1.1.2
 
-faiss-cpu==1.14.2 
+# ── Vector store ───────────────────────────────────────────────────────────────
+faiss-cpu==1.14.2
 
+# ── Embeddings & reranking ─────────────────────────────────────────────────────
+sentence-transformers==5.5.1
+transformers==5.10.2
+huggingface-hub==1.18.0          # FIXED: was unpinned
+# torch is intentionally NOT listed here — install separately first (see top)
 
-sentence-transformers==5.5.1   # HuggingFaceEmbeddings + CrossEncoder
-transformers==5.10.2           # underlying HuggingFace model library
-torch==2.12.0 
+# ── Hybrid / sparse search ─────────────────────────────────────────────────────
+rank-bm25==0.2.2
+numpy==2.4.6
 
-huggingface-hub
-rank-bm25==0.2.2               # BM25Okapi sparse retrieval
-numpy==2.4.6   
- 
+# ── PDF loading ────────────────────────────────────────────────────────────────
+pypdf==6.13.1                    # FIXED: was 5.8.0 (latest is 6.13.1)
 
+# ── Data handling ──────────────────────────────────────────────────────────────
+pandas==3.0.3                    # ADDED: was missing from your file
+python-dateutil==2.9.0.post0
 
-python-dateutil==2.9.0.post0   # relativedelta used in rag.py
-python-dotenv==1.2.2      
-
-ddgs
+# ── Web search (agent fallback) ────────────────────────────────────────────────
+ddgs==9.14.4                     # FIXED: correct pinned version (was unpinned)
