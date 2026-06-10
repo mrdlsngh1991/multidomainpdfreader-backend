@@ -19,7 +19,8 @@ app = FastAPI(title="MultiDomain RAG API", version="1.0.0")
 # ── CORS — allow the React dev server (port 3000 / 5173) ────────────────────
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:8080", "http://localhost:8081"],
+    allow_origins=["http://localhost:3000", "http://localhost:8080", "http://localhost:8081","https://mutidomainpdfreader.vercel.app",
+        "https://mutidomainpdfreader-*.vercel.app", ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
