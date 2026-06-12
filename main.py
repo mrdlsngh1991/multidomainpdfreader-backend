@@ -19,16 +19,27 @@ app = FastAPI(title="MultiDomain RAG API", version="1.0.0")
 # ── CORS ─────────────────────────────────────────────────────────────────────
 # NOTE: allow_credentials=True is incompatible with wildcard "*" origins.
 # We list origins explicitly instead.
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=[
+#         "http://localhost:3000",
+#         "http://localhost:5173",
+#         "http://localhost:8080",
+#         "http://localhost:8081",
+#         "https://mutidomainpdfreader.vercel.app",    # production
+#         "https://mutidomainpdfreader-5uw2ga0am-mridula-singh-s-projects.vercel.app/",  # preview
+#     ],
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:3000",
-        "http://localhost:5173",
-        "http://localhost:8080",
-        "http://localhost:8081",
-        "https://mutidomainpdfreader.vercel.app",    # production
-        "https://mutidomainpdfreader-5uw2ga0am-mridula-singh-s-projects.vercel.app/",  # preview
+        "https://mutidomainpdfreader.vercel.app",
     ],
+    allow_origin_regex=r"https://.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
