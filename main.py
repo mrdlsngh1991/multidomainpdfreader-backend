@@ -38,6 +38,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "https://mutidomainpdfreader.vercel.app",
+        "https://hundredth-vividness-rebuild.ngrok-free.dev"
     ],
     allow_origin_regex=r"https://.*\.vercel\.app",
     allow_credentials=True,
