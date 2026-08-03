@@ -5,3 +5,4 @@ class DomainNames (Enum) :
     RESUME = 'resume'
     MEDICAL = 'medical'
     OTHER = 'other'
+    POLICY = 'policy'
