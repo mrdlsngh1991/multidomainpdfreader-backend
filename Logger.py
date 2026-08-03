@@ -67,7 +67,7 @@ class Logging:
     def log(self):
         if self._saved:        # ← add this guard
             return
-        if not self._status:
+        if not self._status: 
             raise ValueError("Call .success() or .failure() before saving.")
  
         with _get_conn() as conn:
