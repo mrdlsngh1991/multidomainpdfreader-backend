@@ -6,6 +6,7 @@ from typing import Optional
 from contextlib import contextmanager
 import os
 
+
 DB_PATH = 'db/rag_logs.db'
 def _get_conn() -> sqlite3.Connection:
         os.makedirs("db", exist_ok=True)
