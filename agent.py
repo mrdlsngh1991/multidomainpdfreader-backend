@@ -9,7 +9,7 @@ The agent adds two superpowers on top of plain RAG:
      Before retrieving anything, the agent checks if the query is clear
      enough to search for. If not, it returns a follow-up question to the
      user instead of guessing.
-
+     this is the clarity check
      Example:
        User: "tell me about it"       → Agent: "What would you like to know?
                                                 Your lab report or resume?"
@@ -19,7 +19,7 @@ The agent adds two superpowers on top of plain RAG:
      After retrieving chunks from the PDF, the agent checks if those chunks
      are actually enough to answer the question. If not, it automatically
      searches the web and combines the web result with the PDF context.
-
+    this is the sufficiency check
      Example:
        User: "is my cholesterol level dangerous?"
        PDF chunks have the value (4.8 mmol/L) but not medical interpretation.
@@ -33,7 +33,7 @@ HOW THE LLM MAKES DECISIONS
 We use STRUCTURED PROMPTS — prompts that instruct the LLM to reply with a
 specific keyword (YES / NO / UNCLEAR) so our Python code can parse the
 decision reliably.
-
+   this is the prompt check
   Bad prompt:  "Do you think the query is clear?"
   LLM might say: "Well, it depends on the context..."  ← unparseable
 
