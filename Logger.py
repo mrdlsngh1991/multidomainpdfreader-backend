@@ -96,4 +96,4 @@ class Logging:
         self._saved = True  
         #   self._print_log()
 
-init_db();
+init_db()
