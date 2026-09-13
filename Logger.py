@@ -12,7 +12,6 @@ def _get_conn() -> sqlite3.Connection:
         conn = sqlite3.connect(DB_PATH)
         conn.row_factory = sqlite3.Row
         return conn
-   
 def init_db():
     with _get_conn() as conn:
         conn.execute("""
@@ -93,7 +92,7 @@ class Logging:
                 ),
             )
             conn.commit()
-        self._saved = True  
+        self._saved = True
         #   self._print_log()
 if __name__ == "__main__":
     init_db()
