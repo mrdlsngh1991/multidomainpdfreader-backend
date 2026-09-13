@@ -95,5 +95,5 @@ class Logging:
             conn.commit()
         self._saved = True  
         #   self._print_log()
-
-init_db()
+if __name__ == "__main__":
+    init_db()
