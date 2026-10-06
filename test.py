@@ -209,6 +209,15 @@ class MultiDomainRAG:
             return DomainNames.OTHER
 
 
+     def _classify_domain (self, text: str , filename: str) -> () :
+        if "resume" in filename.lower():
+            return DomainNames.RESUME
+        elif "medical" in filename.lower() or "report" in filename.lower() or "lab" in filename.lower():
+            return DomainNames.MEDICAL
+        else:
+            return DomainNames.OTHER
+
+
     def detect_query_domain(self, query):
 
         query = query.lower()
