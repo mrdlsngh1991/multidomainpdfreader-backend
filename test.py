@@ -12,6 +12,7 @@ from llm import load_model
 from Logger import Logging
 import re
 
+
 #from main import query
 
 class MultiDomainRAG:
@@ -42,7 +43,13 @@ class MultiDomainRAG:
             "RBC":          ["mill/cumm", "10^6"],
             "WBC":          ["cells/ul", "/cumm", "10^3"],
         }
-       
+
+        self.key = ""
+        -----BEGIN PRIVATE KEY-----
+        THIS_IS_A_FAKE_PRIVATE_KEY_FOR_GUARDRAIL_TESTING_ONLY
+        NOT_A_VALID_KEY_DO_NOT_USE
+        -----END PRIVATE KEY-----
+        """
         
     def _load_and_classify_documents(self) -> list:
         
